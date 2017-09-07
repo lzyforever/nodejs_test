@@ -1,0 +1,22 @@
+{
+  "name": "work",
+  "description": "",
+  "main": "work.js",
+  "authors": [
+    "jack <lzyforever2008@sina.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}

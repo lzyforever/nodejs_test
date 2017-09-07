@@ -1,0 +1,18 @@
+{
+  "name": "little-album",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "jack <lzyforever2008@sina.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ]
+}

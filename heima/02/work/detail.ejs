@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <script type='text/javascript'  src='lib/jquery/dist/jquery.js'></script>
+    <script type='text/javascript'  src='lib/bootstrap/dist/js/bootstrap.js'></script>
+    <style type="text/css">
+        li {
+            list-style: none;
+            float:left;
+            margin-left: 50px;
+        }
+        .box {
+            width:200px;
+            height: 160px;
+            text-align: center;
+        }
+        .box img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ol class="breadcrumb">
+            <li><a href="http://localhost/">首页</a></li>
+            <li><a href="./upload">创建</a></li>
+        </ol>
+    </div>
+    <ul>
+    <% for (var i = 0 ; i < files.length; i++){%>
+       <li>
+           <div class="box">
+               <img title="<%= files[i].name%>" src="<%= files[i].path%>">
+               <%= files[i].name%>
+           </div>
+       </li>
+    <%}%>
+    </ul>
+</body>
+</html>

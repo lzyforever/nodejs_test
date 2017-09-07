@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <script type='text/javascript'  src='lib/jquery/dist/jquery.js'></script>
+    <script type='text/javascript'  src='lib/bootstrap/dist/js/bootstrap.js'></script>
+</head>
+<body>
+    <div>
+        <ol class="breadcrumb">
+            <li><a href="http://localhost/">首页</a></li>
+            <li><a href="./upload">创建</a></li>
+        </ol>
+    </div>
+    <form method="post" action="./upload" enctype="multipart/form-data">
+        <div class="form-group">
+            <select name="dirname" class="form-control" style="width: 200px;">
+                <% for (var i = 0 ; i < directorys.length;i++){%>
+                    <option><%=directorys[i]%></option>
+                <%}%>
+            </select>
+        </div>
+        <div class="form-group">
+            <a href="#" data-toggle="modal" data-target="#mymodal">创建文件夹</a>
+        </div>
+        <div class="form-group">
+            <label for="upfile">选择要上传在文件</label>
+            <input type="file" id="upfile" name="upfile">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <div class="modal fade" id="mymodal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">创建文件夹</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="dirname">请输入文件夹名称</label>
+                        <input type="text" class="form-control" id="dirname" placeholder="dirname">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button onclick="createDir()" class="btn btn-primary">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</body>
+<script type="text/javascript">
+    function createDir() {
+        $.ajax({
+            type: "get",
+            url: "./mkdir",
+            dataType: "json",
+            data: {
+                "dirname" : $("#dirname").val()
+            },
+            success: function(msg){
+                alert(msg.result);
+            }
+        });
+    }
+</script>
+</html>
